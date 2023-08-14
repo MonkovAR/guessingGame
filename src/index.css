@@ -1,13 +1,33 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  background: gray
+}
+
+.box {
+  background: white;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 30px
+}
+
+.guess {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px
+}
+
+.guessField {
+  width: 80%
+}
+
+.guessSubmit {
+  padding: 0 7px
 }
