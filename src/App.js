@@ -2,12 +2,20 @@ import React, { useState } from 'react';
 
 function App() {
   const [number, setNumber] = useState(Math.floor(Math.random() * 100) + 1);
-  const [gameIsOver,setGameIsOver] = useState(false)
+  const [gameIsOver, setGameIsOver] = useState(false)
   const [guess, setGuess] = useState(null);
   const [feedback, setFeedback] = useState('');
   const [attempts, setAttempts] = useState(0);
   
   const maxAttempts = 3;
+
+  const startNewGame = () => {
+    setNumber(Math.floor(Math.random() * 100) + 1);
+    setGameIsOver(false);
+    setGuess(null);
+    setFeedback("");
+    setAttempts(0)
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -45,6 +53,7 @@ function App() {
                 type="number"
                 min="1"
                 max="100"
+                onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
                 value={guess}
                 onChange={event => setGuess(parseInt(event.target.value))}
               />
@@ -55,6 +64,8 @@ function App() {
         <div className="resultParas">
           <p className="guesses">Previous guesses:{attempts}</p>
           <p className="lowOrHi">{feedback}</p>
+          {
+          gameIsOver && <button type='button' onClick={startNewGame} style={{width: '150px'}}>New game</button>}
         </div>
       </div>
     </div>
